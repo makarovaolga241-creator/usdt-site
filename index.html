@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>USDT Token – Official Info</title>
+  <meta name="description" content="USDT is a custom ERC‑20 token on Ethereum. This site provides contract details and links." />
+  <meta property="og:title" content="USDT Token – Official Info" />
+  <meta property="og:description" content="Contract address, explorer link, and basic information." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/logo.png" />
+  <meta name="robots" content="index,follow" />
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --card: #111521;
+      --muted: #a7b0be;
+      --text: #e8ecf2;
+      --accent: #3fb950;
+      --border: #1d2333;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: radial-gradient(1200px 800px at 80% -20%, #1a2240 0%, #0b0d12 60%) no-repeat fixed;
+      color: var(--text);
+      font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Inter,Ubuntu,'Helvetica Neue',Arial,sans-serif;
+      line-height: 1.6;
+    }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 40px 20px 80px; }
+    header { display: flex; align-items: center; gap: 16px; }
+    header img { width: 64px; height: 64px; border-radius: 20px; background: #fff; }
+    h1 { margin: 0; font-size: 28px; letter-spacing: 0.3px; }
+    .badge { display:inline-block; font-size:12px; padding:2px 8px; border:1px solid var(--border); color:var(--muted); border-radius:8px; margin-left:8px; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-top:24px; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00)); border:1px solid var(--border); border-radius:16px; padding:18px; }
+    .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; }
+    .mono { font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace; }
+    .addr { word-break: break-all; }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px; border:1px solid var(--border); background:#12182a; color:var(--text); text-decoration:none; }
+    .btn:hover { border-color:#2a3550; }
+    footer { margin-top: 48px; color: var(--muted); font-size: 13px; }
+    .disclaimer { border:1px dashed #3b4360; padding:14px; border-radius:12px; background: rgba(255,255,255,.02); }
+    a { color: #7dd3fc; }
+  </style>
+  <script>
+    function copyAddr() {
+      const el = document.getElementById('contract');
+      navigator.clipboard.writeText(el.dataset.addr).then(()=>{ 
+        const tip = document.getElementById('copied'); 
+        tip.style.opacity = 1; setTimeout(()=> tip.style.opacity = 0, 1400);
+      });
+    }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="assets/logo.png" alt="Logo">
+      <div>
+        <h1>USDT <span class="badge">ERC‑20 · Ethereum</span></h1>
+        <div class="label">Symbol</div>
+        <div class="mono">USDT</div>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <div class="label">Contract</div>
+        <div id="contract" class="mono addr" data-addr="0x3bBdd782117702999282F0dAa0dC0cCc748B5502">0x3bBdd782117702999282F0dAa0dC0cCc748B5502</div>
+        <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn" href="https://etherscan.io/token/0x3bBdd782117702999282F0dAa0dC0cCc748B5502" target="_blank" rel="noopener">View on Etherscan</a>
+          <button class="btn" onclick="copyAddr()">Copy Address</button>
+          <span id="copied" style="opacity:0; transition:.2s; font-size:12px; color:var(--accent); align-self:center;">Copied ✓</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="label">Token Details</div>
+        <div><b>Name:</b> USDT</div>
+        <div><b>Symbol:</b> USDT</div>
+        <div><b>Decimals:</b> 18</div>
+        <div><b>Standard:</b> ERC‑20</div>
+        <div><b>Network:</b> Ethereum Mainnet</div>
+      </div>
+
+      <div class="card">
+        <div class="label">Links</div>
+        <ul style="margin:8px 0 0 18px;">
+          <li><a href="https://etherscan.io/token/0x3bBdd782117702999282F0dAa0dC0cCc748B5502" target="_blank" rel="noopener">Etherscan</a></li>
+          
+          
+          
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-top:24px;">
+      <div class="card disclaimer">
+        <b>重要说明 / Disclaimer</b><br/>
+        本项目与 Tether 或任何第三方“USDT”项目无任何隶属或合作关系，仅用于演示/测试用途。<br/>
+        This token is <i>not affiliated</i> with Tether or any other project named “USDT”. For demo/testing purposes only.
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> USDT · This is a static informational site.
+      <script>document.getElementById('y').textContent=(new Date()).getFullYear()</script>
+    </footer>
+  </div>
+</body>
+</html>
